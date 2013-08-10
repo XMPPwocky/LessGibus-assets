@@ -1,11 +1,6 @@
-#version 110
-
-uniform float fade_factor;
-uniform sampler2D texture;
-
-varying vec2 uv_transformed;
-
+#version 330
+out vec4 outputColor;
 void main()
 {
-    gl_FragColor = texture2D(texture, uv_transformed);
+   outputColor = vec4(1.0f, 1.0f, 1.0f, 1.0f);
 }

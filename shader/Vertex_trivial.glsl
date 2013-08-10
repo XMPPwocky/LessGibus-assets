@@ -1,14 +1,6 @@
-#version 110
-
-attribute vec4 position;
-attribute vec2 uv;
-
-uniform mat4 MVP;
-
-varying vec2 transformed_uv;
-
+#version 330
+layout(location = 0) in vec3 position;
 void main()
 {
-    gl_Position = position * MVP;
-    transformed_uv = uv;
+	gl_Position = vec4(position, 1);
 }
