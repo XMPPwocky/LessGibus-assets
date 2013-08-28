@@ -1,7 +1,8 @@
 #version 330 
  
 in vec3 VertexPosition; 
- 
+in vec2 ColorTexture1_uv;
+
 layout(std140) uniform GlobalMatrices 
 { 
 	mat4 worldToCameraMatrix; 
@@ -10,11 +11,11 @@ layout(std140) uniform GlobalMatrices
 }; 
  
 uniform mat4 modelToClipMatrix; 
- 
-smooth out vec3 theColor; 
+
+smooth out vec2 _ColorTexture1_uv;
  
 void main() 
 { 
 	gl_Position = modelToClipMatrix * vec4(VertexPosition, 1); 
-	theColor = vec3(0.0f, 0.f, (VertexPosition.x)+0.5); 
+	_ColorTexture1_uv = ColorTexture1_uv;
 }
