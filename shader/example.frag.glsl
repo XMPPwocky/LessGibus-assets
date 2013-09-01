@@ -2,9 +2,11 @@
 
 out vec4 outputColor;
 
-smooth in vec2 _ColorTexture1_uv;
+in vec2 diffuseuv;
 
+uniform sampler2D diffuse_tex;
+uniform vec4 diffuse_constant;
 void main()
 {
-   outputColor = vec4(0,0,0,1);
+   outputColor = texture(diffuse_tex, diffuseuv);
 }

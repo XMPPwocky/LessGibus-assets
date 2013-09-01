@@ -1,7 +1,8 @@
 #version 330 
  
 in vec3 VertexPosition; 
-in vec2 ColorTexture1_uv;
+
+in vec2 diffuse_uv;
 
 layout(std140) uniform GlobalMatrices 
 { 
@@ -12,10 +13,10 @@ layout(std140) uniform GlobalMatrices
  
 uniform mat4 modelToClipMatrix; 
 
-smooth out vec2 _ColorTexture1_uv;
+out vec2 diffuseuv;
  
 void main() 
 { 
 	gl_Position = modelToClipMatrix * vec4(VertexPosition, 1); 
-	_ColorTexture1_uv = ColorTexture1_uv;
+	diffuseuv = diffuse_uv;
 }
