@@ -1,9 +1,9 @@
 #version 330 
  
 in vec3 VertexPosition; 
+in vec3 VertexNormal;
 
 in vec2 diffuse_uv;
-
 layout(std140) uniform GlobalMatrices 
 { 
 	mat4 worldToCameraMatrix; 
@@ -13,10 +13,11 @@ layout(std140) uniform GlobalMatrices
  
 uniform mat4 modelToClipMatrix; 
 
+out vec3 normal;
 out vec2 diffuseuv;
- 
 void main() 
 { 
 	gl_Position = modelToClipMatrix * vec4(VertexPosition, 1); 
 	diffuseuv = diffuse_uv;
+	normal = VertexNormal;
 }
